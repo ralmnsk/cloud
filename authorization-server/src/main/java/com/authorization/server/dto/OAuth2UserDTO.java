@@ -3,7 +3,6 @@ package com.authorization.server.dto;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.oauth2.core.OAuth2AuthenticatedPrincipal;
 
-import java.io.Serial;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Map;

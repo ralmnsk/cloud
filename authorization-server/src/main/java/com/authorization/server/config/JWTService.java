@@ -16,7 +16,7 @@ import java.util.function.Function;
 @Service
 public class JWTService {
     private static final String SECRET_KEY = "3cafe40f92be6ac77d2792b4b267c2da11e3f3087b93bb19c6c5133786984b44";
-    private static final long LIFE_TIME = 1000 * 60 * 24;
+    private static final long LIFE_TIME = 1000L * 60 * 24;
 
     public String generateToken(UserDetails userDetails) {
         return Jwts

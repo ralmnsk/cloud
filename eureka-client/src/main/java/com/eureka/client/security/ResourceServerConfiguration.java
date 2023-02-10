@@ -27,6 +27,8 @@ public class ResourceServerConfiguration {
 //                                .authenticated()
                                 .requestMatchers(new AntPathRequestMatcher("/main/test"))
                                 .permitAll()
+                                .requestMatchers(new AntPathRequestMatcher("/main/translate"))
+                                .permitAll()
                                 .requestMatchers(new AntPathRequestMatcher("/main/secured"))
                                 .hasAuthority("SCOPE_USER")
                                 .and())

@@ -2,7 +2,6 @@ package com.authorization.server.controller;
 
 import com.authorization.server.dto.AuthenticationResponse;
 import com.authorization.server.dto.Login;
-import com.authorization.server.dto.OAuth2UserDTO;
 import com.authorization.server.dto.Registration;
 import com.authorization.server.dto.Token;
 import com.authorization.server.service.AuthenticationService;
@@ -10,7 +9,6 @@ import com.authorization.server.util.UserDetailsExtractor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.oauth2.core.OAuth2AuthenticatedPrincipal;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -39,8 +37,8 @@ public class AuthController {
     public ResponseEntity<OAuth2AuthenticatedPrincipal> isAuthenticated(@RequestBody Token token) {
         OAuth2AuthenticatedPrincipal user = userDetailsExtractor.extractDetails(token.getToken());
         if (user != null) {
-            return new ResponseEntity(user, HttpStatus.OK);
+            return new ResponseEntity<>(user, HttpStatus.OK);
         }
-        return new ResponseEntity(HttpStatus.UNAUTHORIZED);
+        return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
     }
 }
